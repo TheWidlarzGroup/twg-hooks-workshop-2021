@@ -1,5 +1,6 @@
 import { act, renderHook, RenderResult } from '@testing-library/react-hooks'
 import { MutableRefObject, useRef } from 'react'
+import { useFakeRef } from '../fakeHooks/useFakeRef'
 
 const assertRefValue = <T>(
   result: Pick<RenderResult<MutableRefObject<T>>, 'current'>,
@@ -8,9 +9,12 @@ const assertRefValue = <T>(
   expect(result.current.current).toStrictEqual(expected)
 }
 
-describe('useRef behavior test', () => {
-  it('should be always up to date', () => {
-    const { result } = renderHook(() => useRef(0))
+describe.each([
+  { name: 'real ref', useHook: useRef },
+  { name: 'fake ref', useHook: useFakeRef },
+])('useRef behavior test', ({ name, useHook }) => {
+  test(`case: ${name}, updated should be immediate`, () => {
+    const { result } = renderHook(() => useHook(0))
     const ref = result.current
     assertRefValue(result, 0)
 
@@ -30,5 +34,10 @@ describe('useRef behavior test', () => {
     })
 
     assertRefValue(result, 4)
+  })
+
+  it('should return object', () => {
+    const { result } = renderHook(() => useHook(0))
+    expect(typeof result).toBe('object')
   })
 })

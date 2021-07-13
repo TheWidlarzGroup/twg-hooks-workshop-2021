@@ -1,5 +1,5 @@
-import React, { memo, useEffect } from 'react'
-import { Form } from '../../useForm/initialState'
+import React, {memo, useEffect} from 'react'
+import {Form} from '../../useForm/initialState'
 
 interface Props {
   onChange: F1<string>

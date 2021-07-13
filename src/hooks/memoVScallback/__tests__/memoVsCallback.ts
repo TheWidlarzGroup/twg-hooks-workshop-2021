@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks'
 import { useCallback, useMemo } from 'react'
-import { useFakeCallback } from '../useFakeCallback'
+import { useFakeCallback } from '../../fakeHooks/useFakeCallback'
 
 describe('memo vs callback', function () {
   const { result: memoResult } = renderHook(() => useMemo(() => (a1: number) => a1, []))
@@ -12,13 +12,10 @@ describe('memo vs callback', function () {
     expect(fakeCallbackResult.current(4)).toStrictEqual(callbackResult.current(4))
   })
 
-  it('should have equal types', function () {
-    expect(typeof callbackResult.current).toBe(typeof fakeCallbackResult.current)
-  })
-
   it('should return functions', function () {
-    expect(typeof memoResult.current === 'function').toBeTruthy()
-    expect(typeof callbackResult.current === 'function').toBeTruthy()
-    expect(typeof fakeCallbackResult.current === 'function').toBeTruthy()
+    expect(typeof memoResult.current).toBe('function')
+    expect(typeof callbackResult.current).toBe('function')
+    expect(typeof fakeCallbackResult.current).toBe('function')
   })
 })
+
