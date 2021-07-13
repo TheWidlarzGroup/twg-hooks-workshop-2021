@@ -9,6 +9,7 @@ import {
   CallbackCurring5,
 } from './hooks/callback/limitations/curring'
 import { OnlyFunctions } from './hooks/callback/limitations/onlyFunctions'
+import { ForwardedComponentWithImperativeHandleExample } from './hooks/ref/ForwardedComponentWithImperativeHandle'
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
       <Route path={'/callback4'} render={() => <CallbackCurring4 />} />
       <Route path={'/callback5'} render={() => <CallbackCurring5 />} />
       <Route path={'/callbackfail'} render={() => <OnlyFunctions />} />
+
+      <Route path={'/ref'} render={() => <ForwardedComponentWithImperativeHandleExample />} />
 
       <Route path={'/memo'} render={() => <div>memo</div>} />
       <Route path={'/effect'} render={() => <div>effect</div>} />
