@@ -9,13 +9,15 @@ import {
   CallbackCurring5,
 } from './hooks/callback/limitations/curring'
 import { OnlyFunctions } from './hooks/callback/limitations/onlyFunctions'
-import { ForwardedComponentWithImperativeHandleExample } from './hooks/ref/ForwardedComponentWithImperativeHandle'
+import { ForwardedComponentWithImperativeHandle } from './hooks/ref/ForwardedComponentWithImperativeHandle'
+import { RefAndUseEffect } from './hooks/ref/refAndUseEffect'
+import { WithoutForwardRef } from './hooks/ref/withoutForwardRef'
+import { WithoutForwardRefButRenamed } from './hooks/ref/CustomComponentWithRefButRenamed'
 
 function App() {
   return (
     <Router>
       <Route exact path={'/'} render={() => <div>home</div>} />
-
       <Route path={'/callback'} render={() => <CallbackCurring />} />
       <Route path={'/callback2'} render={() => <CallbackCurring2 />} />
       <Route path={'/callback3'} render={() => <CallbackCurring3 />} />
@@ -23,7 +25,21 @@ function App() {
       <Route path={'/callback5'} render={() => <CallbackCurring5 />} />
       <Route path={'/callbackfail'} render={() => <OnlyFunctions />} />
 
-      <Route path={'/ref'} render={() => <ForwardedComponentWithImperativeHandleExample />} />
+      <Route path={'/refComponentWithoutForwardRef'} render={() => <WithoutForwardRef />} />
+      <Route
+        path={'/refComponentWithoutForwardRefRenamed'}
+        render={() => <WithoutForwardRefButRenamed />}
+      />
+
+      <Route path={'/refComponentWithForwardRef'} render={() => <WithoutForwardRef />} />
+
+      <Route
+        path={'/forwardedComponentWithImperativeHandle'}
+        render={() => <ForwardedComponentWithImperativeHandle />}
+      />
+
+      <Route path={'/refAndUseEffect'} render={() => <RefAndUseEffect />} />
+      <Route path={'/refAndUseEffectFake'} render={() => <RefAndUseEffect fakeRef />} />
 
       <Route path={'/memo'} render={() => <div>memo</div>} />
       <Route path={'/effect'} render={() => <div>effect</div>} />

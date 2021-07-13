@@ -7,7 +7,7 @@ export type ImperativeHandleRef = {
   textStateButWithUpperCase: string
 }
 
-export const ForwardedComponentWithImperativeHandleExample = () => {
+export const ForwardedComponentWithImperativeHandle = () => {
   const ref = useRef<ImperativeHandleRef>(null)
   const { forceRerender } = useForceRerender()
 
@@ -18,7 +18,7 @@ export const ForwardedComponentWithImperativeHandleExample = () => {
         onChange={(e) => ref.current?.updateState(e.target.value)}
         type="text"
       />
-      <ForwardedComponentWithImperativeHandle ref={ref} />
+      <ForwardedComponentWithImperativeHandleChildren ref={ref} />
       <br />
       <button onClick={forceRerender}>FORCE RERENDER</button>
       <button onClick={() => ref.current?.click()}>CLICK USING REF</button>
@@ -26,7 +26,7 @@ export const ForwardedComponentWithImperativeHandleExample = () => {
   )
 }
 
-export const ForwardedComponentWithImperativeHandle = forwardRef(
+const ForwardedComponentWithImperativeHandleChildren = forwardRef(
   (_props, ref: ForwardedRef<ImperativeHandleRef>) => {
     const [text, setText] = useState('Hello from ForwardedComponentWithImperativeHandle')
     const _ref = useRef<HTMLDivElement>(null)

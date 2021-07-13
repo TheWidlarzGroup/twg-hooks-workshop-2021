@@ -7,7 +7,12 @@ const useForceRerender = () => {
     setCounter((prev) => prev + 1)
   }
 
-  return { forceRerender }
+  const forceRerenderWithCallback = (callback?: F0) => {
+    callback && callback()
+    setCounter((prev) => prev + 1)
+  }
+
+  return { forceRerender, forceRerenderWithCallback }
 }
 
 export default useForceRerender
