@@ -35,7 +35,7 @@ const ForwardedComponentWithImperativeHandleChildren = forwardRef(
       ref,
       () => ({
         click: () => _ref.current?.click(),
-        updateState: (value) => setText(value),
+        updateState: setText,
         textStateButWithUpperCase: text.toUpperCase(),
       }),
       [text]
