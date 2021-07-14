@@ -13,6 +13,11 @@ import { ForwardedComponentWithImperativeHandle } from './hooks/ref/ForwardedCom
 import { RefAndUseEffect } from './hooks/ref/refAndUseEffect'
 import { WithoutForwardRef } from './hooks/ref/withoutForwardRef'
 import { WithoutForwardRefButRenamed } from './hooks/ref/CustomComponentWithRefButRenamed'
+import {
+  WithMemo,
+  WithoutMemo,
+  WithoutMemoButUserIsOutsideComponent,
+} from './hooks/memo/ReferenceChangeExamples'
 
 function App() {
   return (
@@ -41,7 +46,13 @@ function App() {
       <Route path={'/refAndUseEffect'} render={() => <RefAndUseEffect />} />
       <Route path={'/refAndUseEffectFake'} render={() => <RefAndUseEffect fakeRef />} />
 
-      <Route path={'/memo'} render={() => <div>memo</div>} />
+      <Route path={'/memoWithout'} render={() => <WithoutMemo />} />
+      <Route
+        path={'/memoWithoutButUserOutside'}
+        render={() => <WithoutMemoButUserIsOutsideComponent />}
+      />
+      <Route path={'/memoWith'} render={() => <WithMemo />} />
+
       <Route path={'/effect'} render={() => <div>effect</div>} />
       <Route path={'/state'} render={() => <div>state</div>} />
     </Router>

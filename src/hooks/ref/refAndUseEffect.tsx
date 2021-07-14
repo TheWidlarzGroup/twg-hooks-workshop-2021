@@ -7,8 +7,8 @@ export const RefAndUseEffect = ({ fakeRef }: { fakeRef?: boolean }) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const counterRef = fakeRef ? useFakeRef(0) : useRef(0)
   const { forceRerenderWithCallback } = useForceRerender()
-  const [withDepsCounter, incrementCounterWithDeps] = useCounter(0)
-  const [withCurrentInDepsCounter, incrementCounterCurrentInWithDeps] = useCounter(0)
+  const [withDepsCounter, incrementCounterWithDeps] = useCounter()
+  const [withCurrentInDepsCounter, incrementCounterCurrentInWithDeps] = useCounter()
 
   useEffect(() => {
     console.log('without deps', counterRef.current)
