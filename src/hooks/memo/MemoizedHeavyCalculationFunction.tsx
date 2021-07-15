@@ -6,7 +6,7 @@ export const MemoizedHeavyCalculationFunction = () => {
 
   const [number, setNumber] = useState(0)
 
-  const memoizedFunction = useMemo(() => {
+  const memoizedValue = useMemo(() => {
     const array: number[] = []
 
     for (let i = 0; i < number * 10_000; i++) {
@@ -18,7 +18,7 @@ export const MemoizedHeavyCalculationFunction = () => {
     return array
   }, [number])
 
-  console.log(memoizedFunction)
+  console.log(memoizedValue)
 
   return (
     <div>
