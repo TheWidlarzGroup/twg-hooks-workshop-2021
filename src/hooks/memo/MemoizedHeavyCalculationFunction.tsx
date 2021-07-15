@@ -1,12 +1,5 @@
 import React, { useMemo, useState } from 'react'
-
-export const tickUsage = (base: Record<string, number>, value: number) => {
-  const _base = { ...base }
-
-  _base[value] = _base[value] + 1 || 1
-
-  return _base
-}
+import { registerUsage } from '../../utils/registerUsage'
 
 export const MemoizedHeavyCalculationFunction = () => {
   const [state, setState] = useState<Record<string, number>>({})
@@ -20,7 +13,7 @@ export const MemoizedHeavyCalculationFunction = () => {
       array.push(i)
     }
 
-    setState((prev) => tickUsage(prev, number))
+    setState((prev) => registerUsage(prev, number))
 
     return array
   }, [number])
