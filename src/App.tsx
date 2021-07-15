@@ -7,6 +7,7 @@ import {
   CallbackCurring3,
   CallbackCurring4,
   CallbackCurring5,
+  CallbackCurring6,
 } from './hooks/callback/limitations/curring'
 import { OnlyFunctions } from './hooks/callback/limitations/onlyFunctions'
 import { ForwardedComponentWithImperativeHandle } from './hooks/ref/ForwardedComponentWithImperativeHandle'
@@ -18,6 +19,7 @@ import {
   WithoutMemo,
   WithoutMemoButUserIsOutsideComponent,
 } from './hooks/memo/ReferenceChangeExamples'
+import { MemoizedHeavyCalculationFunction } from './hooks/memo/MemoizedHeavyCalculationFunction'
 
 function App() {
   return (
@@ -28,6 +30,7 @@ function App() {
       <Route path={'/callback3'} render={() => <CallbackCurring3 />} />
       <Route path={'/callback4'} render={() => <CallbackCurring4 />} />
       <Route path={'/callback5'} render={() => <CallbackCurring5 />} />
+      <Route path={'/callback6'} render={() => <CallbackCurring6 />} />
       <Route path={'/callbackfail'} render={() => <OnlyFunctions />} />
 
       <Route path={'/refComponentWithoutForwardRef'} render={() => <WithoutForwardRef />} />
@@ -52,6 +55,10 @@ function App() {
         render={() => <WithoutMemoButUserIsOutsideComponent />}
       />
       <Route path={'/memoWith'} render={() => <WithMemo />} />
+      <Route
+        path={'/memoizedHeavyCalculationFunction'}
+        render={() => <MemoizedHeavyCalculationFunction />}
+      />
 
       <Route path={'/effect'} render={() => <div>effect</div>} />
       <Route path={'/state'} render={() => <div>state</div>} />

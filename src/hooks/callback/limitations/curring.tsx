@@ -89,7 +89,10 @@ export const CallbackCurring4 = () => {
 
   return (
     <div>
-      <HeavyInputMemoized field={'name'} onChange={onChangeCallback} />
+      <HeavyInputMemoized
+        field={'name'}
+        onChange={(name, value) => onChangeCallback(name, value)}
+      />
       <div>{state.name}</div>
       <br />
       <br />
@@ -101,6 +104,26 @@ export const CallbackCurring4 = () => {
 }
 
 export const CallbackCurring5 = () => {
+  const [state, setState] = useState(formInitialState)
+  const counters = useRef({ curriedBase: 0, curried: 0 })
+  const onChangeCallback = useCallback((field: keyof Form, value: string) => {
+    setState((prev) => ({ ...prev, [field]: value }))
+  }, [])
+
+  return (
+    <div>
+      <HeavyInputMemoized field={'name'} onChange={onChangeCallback} />
+      <div>{state.name}</div>
+      <br />
+      <br />
+      <div>curried base counter: {counters.current.curriedBase} </div>
+      <br />
+      <div>curried counter: {counters.current.curried} </div>
+    </div>
+  )
+}
+
+export const CallbackCurring6 = () => {
   const [state, setState] = useState(formInitialState)
   const counters = useRef({ curriedBase: 0, curried: 0 })
   const onChangeCallback = useCallback(
