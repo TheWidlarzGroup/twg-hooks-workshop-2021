@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import { registerUsage } from '../../utils/registerUsage'
 
-export const MemoizedHeavyCalculationFunction = () => {
+export const MemoizedHeavyCalculation = () => {
   const [state, setState] = useState<Record<string, number>>({})
 
   const [number, setNumber] = useState(0)
@@ -26,7 +26,7 @@ export const MemoizedHeavyCalculationFunction = () => {
       <div>
         {Object.entries(state).map(([key, value]) => {
           return (
-            <div>
+            <div key={key}>
               {key} : {value}
             </div>
           )

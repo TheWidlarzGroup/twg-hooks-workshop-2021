@@ -1,7 +1,7 @@
 import { act, render, screen } from '@testing-library/react'
 import { MutableRefObject } from 'react'
 import {
-  ForwardedComponentWithImperativeHandle,
+  ForwardedComponentWithImperativeHandleChildren,
   ImperativeHandleRef,
 } from '../ForwardedComponentWithImperativeHandle'
 
@@ -9,7 +9,7 @@ describe('ForwardedComponentWithImperativeHandle tests', () => {
   it('should control component via custom ref api', function () {
     const ref: MutableRefObject<ImperativeHandleRef | null> = { current: null }
 
-    render(<ForwardedComponentWithImperativeHandle ref={ref} />)
+    render(<ForwardedComponentWithImperativeHandleChildren ref={ref} />)
 
     expect(ref.current?.textStateButWithUpperCase).toBe(
       'HELLO FROM FORWARDEDCOMPONENTWITHIMPERATIVEHANDLE'

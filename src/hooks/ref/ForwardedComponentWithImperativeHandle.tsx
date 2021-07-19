@@ -26,7 +26,7 @@ export const ForwardedComponentWithImperativeHandle = () => {
   )
 }
 
-const ForwardedComponentWithImperativeHandleChildren = forwardRef(
+export const ForwardedComponentWithImperativeHandleChildren = forwardRef(
   (_props, ref: ForwardedRef<ImperativeHandleRef>) => {
     const [text, setText] = useState('Hello from ForwardedComponentWithImperativeHandle')
     const _ref = useRef<HTMLDivElement>(null)
