@@ -19,7 +19,8 @@ import {
   WithoutMemo,
   WithoutMemoButUserIsOutsideComponent,
 } from './hooks/memo/ReferenceChangeExamples'
-import { MemoizedHeavyCalculationFunction } from './hooks/memo/MemoizedHeavyCalculationFunction'
+import { MemoizedHeavyCalculation } from './hooks/memo/MemoizedHeavyCalculation'
+import { MemoizedHeavyCalculationWithCache } from './hooks/memo/MemoizedHeavyCalculationWithCache'
 
 function App() {
   return (
@@ -55,10 +56,7 @@ function App() {
         render={() => <WithoutMemoButUserIsOutsideComponent />}
       />
       <Route path={'/memoWith'} render={() => <WithMemo />} />
-      <Route
-        path={'/memoizedHeavyCalculationFunction'}
-        render={() => <MemoizedHeavyCalculationFunction />}
-      />
+      <Route path={'/memoizedHeavyCalculation'} render={() => <MemoizedHeavyCalculation />} />
 
       <Route path={'/effect'} render={() => <div>effect</div>} />
       <Route path={'/state'} render={() => <div>state</div>} />
