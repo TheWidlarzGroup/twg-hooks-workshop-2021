@@ -20,7 +20,6 @@ import {
   WithoutMemoButUserIsOutsideComponent,
 } from './hooks/memo/ReferenceChangeExamples'
 import { MemoizedHeavyCalculation } from './hooks/memo/MemoizedHeavyCalculation'
-import { MemoizedHeavyCalculationWithCache } from './hooks/memo/MemoizedHeavyCalculationWithCache'
 
 function App() {
   return (
