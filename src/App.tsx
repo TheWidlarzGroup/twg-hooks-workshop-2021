@@ -20,6 +20,7 @@ import {
   WithoutMemoButUserIsOutsideComponent,
 } from './hooks/memo/ReferenceChangeExamples'
 import { MemoizedHeavyCalculation } from './hooks/memo/MemoizedHeavyCalculation'
+import { TaskStage1 } from './task-stage1'
 
 function App() {
   return (
@@ -59,6 +60,7 @@ function App() {
 
       <Route path={'/effect'} render={() => <div>effect</div>} />
       <Route path={'/state'} render={() => <div>state</div>} />
+      <Route path={'/task'} render={() => <TaskStage1 />} />
     </Router>
   )
 }
