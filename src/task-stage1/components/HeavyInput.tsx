@@ -1,9 +1,14 @@
-import React, { useEffect } from 'react'
-import { useSpring } from 'react-spring'
+import React, { ChangeEvent, useEffect } from 'react'
+import { a, useSpring } from 'react-spring'
+import { ackermann } from '../../hooks/utils/ackerman'
 
-export const HeavyInput = ({ onChange }) => {
+interface Props {
+  onChange: F1<ChangeEvent<HTMLInputElement>>
+}
+
+export const HeavyInput = ({ onChange }: Props) => {
   useEffect(() => {
-    for (let i = 0; i < 50_000; i++) {}
+    ackermann(2, 1520)
   }, [onChange])
 
   useEffect(() => {
@@ -13,14 +18,8 @@ export const HeavyInput = ({ onChange }) => {
   return <input type="text" onChange={onChange} />
 }
 
-const FlickerOnPropsChange = (props) => {
-  const animatedStyle =  useSpring(()=>{
+const FlickerOnPropsChange = (props: any) => {
+  const animatedStyle = useSpring(() => ({}), [])
 
-
-
-
-  },[])
-
-  return
-  ;<a.div>{props.children}</a.div>
+  return <a.div>{props.children}</a.div>
 }
