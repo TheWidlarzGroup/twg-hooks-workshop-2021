@@ -1,0 +1,30 @@
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(-20deg) scale(2);
+  }
+  75% {
+    transform: rotate(20deg) scale(2);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.wiggle {
+  animation-name: wiggle;
+  animation-duration: 100ms;
+  animation-iteration-count: 4;
+  animation-timing-function: ease-in;
+}
+
+.anim-easin {
+}
+
+.anim-100 {
+}
+
+.anim-count-4 {
+}
