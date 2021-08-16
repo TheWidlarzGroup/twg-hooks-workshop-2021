@@ -4,6 +4,7 @@ export default {
 
 export * from '../../hooks/ref/CustomComponentWithRefButRenamed'
 export * from '../../hooks/ref/refWithHook'
+export * from '../../hooks/ref/withoutHook'
 export * from '../../hooks/ref/ForwardedComponentWithImperativeHandle'
 export * from '../../hooks/ref/WithForwardedRef'
 export * from '../../hooks/ref/withoutForwardRef'
