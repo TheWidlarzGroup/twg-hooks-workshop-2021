@@ -3,7 +3,7 @@ import { useImperativeHandle, useRef } from 'react'
 export const useHook1 = () => {
   const ref = useRef(null)
 
-  useImperativeHandle(ref, () => {}, [])
+  // useImperativeHandle(ref, () => {}, [])
 
   return { ref }
 }

@@ -1,8 +1,9 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 interface Props {
   initial?: number
   limit?: number
+  onLimitReached?: F0
 }
 
 const useCounter = (props?: Props) => {
@@ -13,6 +14,13 @@ const useCounter = (props?: Props) => {
   const increment = useCallback(() => {
     setCounter((prev) => (prev + 1 <= limit ? prev + 1 : prev))
   }, [limit])
+
+  useEffect(() => {
+    if (limit === counter) {
+      props?.onLimitReached?.()
+    }
+  })
+
   return [counter, increment] as const
 }
 
