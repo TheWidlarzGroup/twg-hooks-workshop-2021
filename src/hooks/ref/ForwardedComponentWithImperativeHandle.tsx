@@ -29,6 +29,7 @@ export const ForwardedComponentWithImperativeHandle = () => {
 export const ForwardedComponentWithImperativeHandleChildren = forwardRef(
   (_props, ref: ForwardedRef<ImperativeHandleRef>) => {
     const [text, setText] = useState('Hello from ForwardedComponentWithImperativeHandle')
+    const [color, setColor] = useState('')
     const _ref = useRef<HTMLDivElement>(null)
 
     useImperativeHandle(
@@ -36,6 +37,7 @@ export const ForwardedComponentWithImperativeHandleChildren = forwardRef(
       () => ({
         click: () => _ref.current?.click(),
         updateState: setText,
+        updateColor: setColor,
         textStateButWithUpperCase: text.toUpperCase(),
       }),
       [text]
