@@ -7,7 +7,6 @@ export const OnlyFunctions = () => {
   const [referenceChangeCounter, setReferenceChangeCounter] = useState(0)
 
   // @ts-ignore
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const callbackAsMemo: Form = useCallback({ ...formInitialState, name: 'callback as Memo', age }, [
     age,
   ])

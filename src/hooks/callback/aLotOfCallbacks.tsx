@@ -56,6 +56,3 @@ export const ComponentsWithCallbacks = () => {
     </div>
   )
 }
-
-// const fn = () => console.log('hello world')
-// const cb = useCallback(() => console.log('hello world'), [])
