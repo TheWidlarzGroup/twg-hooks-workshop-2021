@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm } from './useForm'
-import { Input } from './Input'
+import { Input } from '../Input'
 
 export const Solution = () => {
   const { validators, updateField } = useForm()

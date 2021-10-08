@@ -30,6 +30,7 @@ useState, useRef, useCallback
 3. Setter powinien posiadać stałą referencję
 4. Hook powinien umożliwić wykonanie callbacka w momencie ustawienia nowego stanu
 
+
 # 4 Filter z useMemo
 
 useRef useImperativeHandle useState forwardRef
