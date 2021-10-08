@@ -31,12 +31,7 @@ useState, useRef, useCallback
 4. Hook powinien umożliwić wykonanie callbacka w momencie ustawienia nowego stanu
 
 
-# 4 Filter z useMemo
-
-useRef useImperativeHandle useState forwardRef
-useContext useMemo(jsx) useState
-
-# 5 Stwórz komponent, który możemy sterować imperatywnie, z minimalnym wykorzystaniem propsów.
+# 4 Stwórz komponent, który możemy sterować imperatywnie, z minimalnym wykorzystaniem propsów.
 
 1. Komponent powinien przyjmować tylko jeden props: ref
 2. Komponent powinien wyświetlać napis, który mozemy ustawić poprzez ref
